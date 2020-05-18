@@ -5,39 +5,46 @@
 </ion-header>
 
 <ion-content>
+  <div style="height: 30%; display: flex; align-items: center; justify-content: center;">
+    <img  width="200x" height="200x" src="https://lh4.googleusercontent.com/WqGoNLWj0LOVxyDtUery9pCaGj3tzOd9ywm7NbwBY4fikQPeAfd2c1R4FVbf00UyHUPayD2CMH-NALlm2-X9w6L7qF8453arb3t0UMuHJOBpTRcSU3_xsfsC_s9IhVyiPAPINj1vRC8">
+    
 
-  <div class="header-container">
-    <h1>Momentum</h1>
-    <p>Log in and start sharing moments with your friends.</p>
   </div>
 
-  <form [formGroup]="loginForm">
-    <ion-grid>
-      <ion-row>
-        <ion-col size="12">
-          <ion-item>
-            <ion-label position="floating">Email</ion-label>
-            <ion-input formControlName="email" placeholder="Johndoe@company.com"></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
+  <div style="height: 60%; display: flex; align-items: center; justify-content: center;">
+    <ion-card>
+      <form [formGroup]="loginForm">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="floating">Email</ion-label>
+                <ion-input formControlName="email" placeholder=""></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+    
+          <ion-row>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="floating">Password</ion-label>
+                <ion-input formControlName="password" type="password"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+    
+          <ion-row>
+            <ion-col size="12">
+              <ion-button color="primary" expand="block" fill="solid" (click)="onSubmit()" [disabled]="loading">Log In</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>    
+      </form>
+    </ion-card>
 
-      <ion-row>
-        <ion-col size="12">
-          <ion-item>
-            <ion-label position="floating">Password</ion-label>
-            <ion-input formControlName="password" type="password"></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
+  </div>
 
-      <ion-row>
-        <ion-col size="12">
-          <ion-button color="primary" expand="block" fill="solid" (click)="onSubmit()" [disabled]="loading">Log In</ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>    
-  </form>
+  
 </ion-content>
 
 <ion-footer>

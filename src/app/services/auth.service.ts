@@ -10,6 +10,8 @@ import { UserService } from './user.service';
 export class AuthService {
 
   user$: Observable<any>;
+  currentID = "";
+  
 
   constructor(private afa: AngularFireAuth,
               private userService: UserService) {
@@ -25,6 +27,12 @@ export class AuthService {
 
   }
 
+  GetID() {
+    
+    
+    return this.afa.auth.currentUser.uid
+  }
+
   login(email: string, password: string): Promise<any> {
     return this.afa.auth.signInWithEmailAndPassword(email, password);
   }
@@ -34,6 +42,8 @@ export class AuthService {
   }
 
   logout(): Promise<void> {
+    this.currentID = ""
     return this.afa.auth.signOut();
+    
   }
 }

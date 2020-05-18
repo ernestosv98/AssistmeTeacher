@@ -54,13 +54,19 @@ export class LoginPage implements OnInit {
       const email = this.loginForm.controls.email.value;
       const password = this.loginForm.controls.password.value;
 
-      this.authService.login(email, password).then(() => {
+      var id = ""
+      
+      await this.authService.login(email, password).then(() => {
         this.dismissLoading();
-        this.navCtrl.navigateRoot(['home']);
+        this.navCtrl.navigateRoot(['control-panel']);
       }).catch((error) => {
         this.dismissLoading();
         this.presentAlert('Something went wrong', error.message);
       });
+      
+    
+
+      
 
     } else {
       this.dismissLoading();

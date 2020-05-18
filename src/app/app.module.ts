@@ -15,6 +15,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { environment } from 'src/enviroments/environment';
+import { AddCourseModalPageModule } from './add-course-modal/add-course-modal.module';
 
 
 
@@ -30,7 +31,8 @@ import { environment } from 'src/enviroments/environment';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    AddCourseModalPageModule
   ],
   providers: [
     StatusBar,
