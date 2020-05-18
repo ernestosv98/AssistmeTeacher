@@ -15,16 +15,15 @@ export class AuthService {
 
   constructor(private afa: AngularFireAuth,
               private userService: UserService) {
-    this.user$ = this.afa.authState.pipe(
-      switchMap(user => {
-        if (user) {
-          return this.userService.getUser(user.uid);
-        } else {
-          return of(null);
-        }
-      })
-    );
-
+                this.user$ = this.afa.authState.pipe(
+                  switchMap(user => {
+                    if (user) {
+                      return this.userService.getUser(user.uid);
+                    } else {
+                      return of(null);
+                    }
+                  })
+                );
   }
 
   GetID() {

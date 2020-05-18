@@ -16,8 +16,10 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { environment } from 'src/enviroments/environment';
 import { AddCourseModalPageModule } from './add-course-modal/add-course-modal.module';
-
-
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { DatePickerModule } from 'ionic4-date-picker';
+import { ShowStudentsPageModule } from './show-students/show-students.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,7 +34,10 @@ import { AddCourseModalPageModule } from './add-course-modal/add-course-modal.mo
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
-    AddCourseModalPageModule
+    DatePickerModule,
+    AddCourseModalPageModule,
+    ShowStudentsPageModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
   ],
   providers: [
     StatusBar,

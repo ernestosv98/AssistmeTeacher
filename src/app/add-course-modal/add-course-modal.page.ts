@@ -3,6 +3,7 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { CoursesService } from '../services/courses.service';
 import { AuthService } from '../services/auth.service';
 import { getLocaleDateFormat, formatDate } from '@angular/common';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-add-course-modal',
@@ -12,9 +13,12 @@ import { getLocaleDateFormat, formatDate } from '@angular/common';
 export class AddCourseModalPage implements OnInit {
 
   addForm : FormGroup;
+  viewDate: Date = new Date();
+  events = [];
 
   constructor( private courseService : CoursesService,
-                private authService : AuthService) { }
+                private authService : AuthService,
+                private userService : UserService) { }
 
   ngOnInit() {
     this.initForm();

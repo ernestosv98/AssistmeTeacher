@@ -15,6 +15,11 @@ export class UserService {
     return this.afs.doc(`users/${uid}`).valueChanges();
   }
 
+  getName(uid) {
+
+    
+  }
+
   createUser(user: any) {
     return this.afs.doc(`users/${user.id}`).set(user);
   }

@@ -21,10 +21,6 @@ const routes: Routes = [
     loadChildren: () => import('./control-panel/control-panel.module').then( m => m.ControlPanelPageModule)
   },
   {
-    path: 'show-students',
-    loadChildren: () => import('./show-students/show-students.module').then( m => m.ShowStudentsPageModule)
-  },
-  {
     path: 'profile',
     loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
   },

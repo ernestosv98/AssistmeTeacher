@@ -28,15 +28,6 @@
       <ion-row>
         <ion-col size="12">
           <ion-item>
-            <ion-label position="floating">Teacher Name</ion-label>
-            <ion-input formControlName="TeacherName" type="text"></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-
-      <ion-row>
-        <ion-col size="12">
-          <ion-item>
             <ion-label position="floating">Subject</ion-label>
             <ion-input formControlName="Subject" type="text"></ion-input>
           </ion-item>
@@ -45,9 +36,24 @@
 
       <ion-row>
         <ion-col size="12">
-          <ion-button color="primary" expand="block" fill="solid" (click)="add()">Log In</ion-button>
+          <ion-item>
+            <ion-label position="floating">Teacher Name</ion-label>
+            <ion-input formControlName="TeacherName" type="text"></ion-input>
+          </ion-item>
         </ion-col>
       </ion-row>
+
+      <ionic-calendar-date-picker></ionic-calendar-date-picker>	
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-button color="primary" expand="block" fill="solid" (click)="add()">Add Course</ion-button>
+        </ion-col>
+      </ion-row>
+
+
+      
+
     </ion-grid>    
   </form>
 </ion-content>
