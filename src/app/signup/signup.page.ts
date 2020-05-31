@@ -58,22 +58,22 @@ export class SignupPage implements OnInit {
     if (this.signupForm.valid) {
       const email = this.signupForm.controls.email.value;
       const password = this.signupForm.controls.password.value;
-      const username = this.signupForm.controls.username.value.toLowerCase();
+      const aboutMe = this.signupForm.controls.username.value;
       const name = this.signupForm.controls.name.value;
 
       try {
-        await this.userService.usernameExists(username);
+        //await this.userService.usernameExists(username);
         const credentials = await this.authService.signup(email, password);
 
         const user = {
           id: credentials.user.uid,
-          username,
+          aboutMe,
           email,
           name,
         };
 
         await this.userService.createUser(user);
-        await this.userService.createUsername(user);
+        //await this.userService.createUsername(user);
         await this.authService.logout();
         this.dismissLoading();
         this.presentAlertConfirm('Welcome aboard!', 'Your account has been created successfully.');

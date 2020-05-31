@@ -16,6 +16,7 @@ export class HomePage implements OnInit {
   courses = []
   searched = []
   searchBox = ""
+  subjects = "All"
 
   ngOnInit() {
     console.log(this.authService.GetID())
@@ -30,15 +31,34 @@ export class HomePage implements OnInit {
   }
 
   searchCourses(){
-    if(this.searchBox.length > 0){
-      this.searched = [];
-      this.courses.forEach(element => {
-        if(element.Title.toLowerCase().includes(this.searchBox.toLowerCase())){
-          this.searched.push(element)
+    if(this.subjects.length > 0){
+      if(this.subjects.includes("All") || this.searchBox.length > 0){
+        this.searched = []
+        this.courses.forEach(element => {
+          if(element.Title.includes(this.searchBox)){
+            this.searched.push(element)
+          }
+        });
+        return;
+      } else {
+        let subTable = []
+        this.searched = []
+        this.courses.forEach(element => {
+        if(element.Subject.includes(this.subjects)){
+          subTable.push(element)
+          if(this.searchBox.length > 0){
+            subTable.forEach(course => {
+              if(course.Title.includes(this.searchBox)){
+                this.searched.push(course)
+              }
+            });
+          } else {
+            this.searched = subTable;
+          }
         }
       });
-    }
-    else {
+      }
+    } else {
       this.getCourses();
     }
   }
