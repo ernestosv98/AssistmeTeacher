@@ -15,6 +15,9 @@ export class AddCourseModalPage implements OnInit {
   addForm : FormGroup;
   viewDate: Date = new Date();
   events = [];
+  subjects = "";
+  days :string[]=[];
+  user : any;
 
   constructor( private courseService : CoursesService,
                 private authService : AuthService,
@@ -22,6 +25,9 @@ export class AddCourseModalPage implements OnInit {
 
   ngOnInit() {
     this.initForm();
+    this.authService.user$.subscribe((user) => {
+      this.user = user;
+    })
   }
 
   initForm(): void {
@@ -34,12 +40,15 @@ export class AddCourseModalPage implements OnInit {
   }
 
   add() {
+    console.log();
+
     var temp = {
       name : this.addForm.controls.Title.value,
       description : this.addForm.controls.Description.value,
-      teachername : this.addForm.controls.TeacherName.value,
+      teachername : this.user.name,
       teacherID : this.authService.GetID(),
-      subject : this.addForm.controls.Subject.value,
+      subject : this.subjects,
+      days : this.days,
       creationDate : formatDate(new Date(), 'yyyy/MM/dd', 'en'),
       enrolled : [],
     }

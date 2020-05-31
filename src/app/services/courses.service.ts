@@ -20,6 +20,7 @@ export class CoursesService {
         const TeacherName = course.teachername;
         const TeacherID = course.teacherID;
         const Subject = course.subject;
+        const Days = course.days;
         const CreationDate = course.creationDate;
         const Enrolled = course.enrolled;
 
@@ -29,6 +30,7 @@ export class CoursesService {
           Description : Description,
           TeacherName : TeacherName,
           TeacherID : TeacherID,
+          Days : Days,
           Subject : Subject,
           CreationDate : CreationDate,
           Enrolled : Enrolled
