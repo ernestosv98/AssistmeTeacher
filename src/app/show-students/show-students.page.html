@@ -1,9 +1,20 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>show-students</ion-title>
+    <ion-title>Enrolled Students</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-item *ngFor="let item of students" >
+    <ion-label> {{item.name}} </ion-label> 
+    <ion-label> {{item.email}} </ion-label>
+    <ion-button color="danger" (click)="removeStudent(item)"> Remove </ion-button>
+  </ion-item>
+
+  <ion-row>
+    <ion-col size="12">
+      <ion-button color="tertiary" expand="block" fill="solid" (click)="dismiss()">Done</ion-button>
+    </ion-col>
+  </ion-row>
 
 </ion-content>

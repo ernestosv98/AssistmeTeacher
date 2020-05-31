@@ -4,6 +4,7 @@ import { ModalController, MenuController } from '@ionic/angular';
 import { AddCourseModalPage } from '../add-course-modal/add-course-modal.page';
 import { AuthService } from '../services/auth.service';
 import { ShowStudentsPage } from '../show-students/show-students.page';
+import { UpdateCourseModalPage } from '../update-course-modal/update-course-modal.page';
 
 @Component({
   selector: 'app-control-panel',
@@ -40,14 +41,27 @@ export class ControlPanelPage implements OnInit {
     await modal.present();
   }
 
+  async openUpdateModal(item : any){
+    const modal = await this.modalCtrl.create({
+      component : UpdateCourseModalPage,
+      componentProps : {
+        'item' : item
+      }
+    });
+    await modal.present();
+  }
+
   remove(index) {
     
     this.courseService.deleteCourse(this.myCourses[index].courseID)
   }
 
-  async enrolled(index) {
+  async enrolled(item) {
     const modal = await this.modalCtrl.create({
-      component: ShowStudentsPage
+      component: ShowStudentsPage,
+      componentProps : {
+        'item' : item
+      }
     });
     await modal.present();
   }

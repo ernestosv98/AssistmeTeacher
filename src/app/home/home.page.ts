@@ -14,6 +14,8 @@ export class HomePage implements OnInit {
               ) { }
 
   courses = []
+  searched = []
+  searchBox = ""
 
   ngOnInit() {
     console.log(this.authService.GetID())
@@ -23,7 +25,22 @@ export class HomePage implements OnInit {
   getCourses() {
     this.courseService.getCourses().subscribe((item) => {
       this.courses = item;
+      this.searched = item;
     })
+  }
+
+  searchCourses(){
+    if(this.searchBox.length > 0){
+      this.searched = [];
+      this.courses.forEach(element => {
+        if(element.Title.toLowerCase().includes(this.searchBox.toLowerCase())){
+          this.searched.push(element)
+        }
+      });
+    }
+    else {
+      this.getCourses();
+    }
   }
 
 

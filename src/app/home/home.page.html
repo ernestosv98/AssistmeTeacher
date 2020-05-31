@@ -8,9 +8,10 @@
 </ion-header>
 
 <ion-content>
+  <ion-searchbar [(ngModel)]="searchBox" (ionChange)="searchCourses()" showCancelButton="always"></ion-searchbar>
   <h1> Community Courses </h1>
   <ion-list>
-    <ion-card *ngFor="let item of courses, let i = index">
+    <ion-card *ngFor="let item of searched, let i = index">
       <ion-card-title> {{item.Title}} </ion-card-title>
       <ion-card-content> Description :  {{item.Description}} </ion-card-content>
       <ion-card-content> Teacher Name : {{item.TeacherName}} </ion-card-content>

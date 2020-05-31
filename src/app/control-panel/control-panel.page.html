@@ -20,10 +20,14 @@
       <ion-card-content> Creation Date : {{item.CreationDate}} </ion-card-content>
       <ion-card-content> Days : {{item.Days}} </ion-card-content>
       <ion-button horizontal="end" fill="clear" size="small" color="danger" (click) = "remove(i)" > Remove </ion-button>
-      <ion-button horizontal="end" fill="clear" size="small" color="secondary"> Update </ion-button>
-      <ion-button horizontal="end" fill="clear" size="small" color="secondary"  (click) = "enrolled(i)"> View Enrolled </ion-button>
+      <ion-button horizontal="end" fill="clear" size="small" color="secondary" (click) = "openUpdateModal(item)" > Update </ion-button>
+      <ion-button horizontal="end" fill="clear" size="small" color="secondary"  (click) = "enrolled(item)"> View Enrolled </ion-button>
     </ion-card>
   </ion-list>
 
-  <ion-button horizontal="end" fill="clear" size="small" color="secondary" (click)="openAddModal()"> Add </ion-button>
+  <ion-row>
+    <ion-col size="12">
+      <ion-button color="medium" expand="block" fill="solid" (click)="openAddModal()">Add Course</ion-button>
+    </ion-col>
+  </ion-row>
 </ion-content>

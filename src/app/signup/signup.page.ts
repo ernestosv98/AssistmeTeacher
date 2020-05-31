@@ -36,7 +36,7 @@ export class SignupPage implements OnInit {
           this.dismissLoading();
         }, 200);
         if (user) {
-          this.navCtrl.navigateRoot(['tabs']);
+          this.navCtrl.navigateRoot(['login']);
         }
       });
     }

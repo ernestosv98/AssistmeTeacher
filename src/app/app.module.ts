@@ -20,6 +20,8 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { DatePickerModule } from 'ionic4-date-picker';
 import { ShowStudentsPageModule } from './show-students/show-students.module';
+import { UpdateCourseModalPage } from './update-course-modal/update-course-modal.page';
+import { UpdateCourseModalPageModule } from './update-course-modal/update-course-modal.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -36,6 +38,7 @@ import { ShowStudentsPageModule } from './show-students/show-students.module';
     AngularFireStorageModule,
     DatePickerModule,
     AddCourseModalPageModule,
+    UpdateCourseModalPageModule,
     ShowStudentsPageModule,
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
   ],

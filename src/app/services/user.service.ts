@@ -15,9 +15,13 @@ export class UserService {
     return this.afs.doc(`users/${uid}`).valueChanges();
   }
 
+  getStudent(uid : string){
+    return this.afs.doc(`students/${uid}`).valueChanges();
+  }
+
   getName(uid) {
 
-    
+    return this.afs.doc(`users/${uid}`).valueChanges()
   }
 
   createUser(user: any) {

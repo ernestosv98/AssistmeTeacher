@@ -4,6 +4,7 @@ import { CoursesService } from '../services/courses.service';
 import { AuthService } from '../services/auth.service';
 import { getLocaleDateFormat, formatDate } from '@angular/common';
 import { UserService } from '../services/user.service';
+import { ModalController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-add-course-modal',
@@ -21,7 +22,9 @@ export class AddCourseModalPage implements OnInit {
 
   constructor( private courseService : CoursesService,
                 private authService : AuthService,
-                private userService : UserService) { }
+                private userService : UserService,
+                private modalCtrl : ModalController,
+                public toastController: ToastController ) { }
 
   ngOnInit() {
     this.initForm();
@@ -54,6 +57,25 @@ export class AddCourseModalPage implements OnInit {
     }
 
     this.courseService.createCourse(temp)
+    this.dismiss();
+    this.presentToast()
+
+  }
+
+  dismiss() {
+    // using the injected ModalController this page
+    // can "dismiss" itself and optionally pass back data
+    this.modalCtrl.dismiss({
+      'dismissed': true
+    });
+  }
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Created new course succesfully!',
+      duration: 2000
+    });
+    toast.present();
   }
 
 }

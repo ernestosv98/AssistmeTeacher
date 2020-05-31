@@ -34,7 +34,7 @@ export class LoginPage implements OnInit {
           this.dismissLoading();
         }, 200);
         if (user) {
-          this.navCtrl.navigateRoot(['tabs']);
+          this.navCtrl.navigateRoot(['login']);
         }
       });
     }
@@ -58,7 +58,7 @@ export class LoginPage implements OnInit {
       
       await this.authService.login(email, password).then(() => {
         this.dismissLoading();
-        this.navCtrl.navigateRoot(['control-panel']);
+        this.navCtrl.navigateRoot(['home']);
       }).catch((error) => {
         this.dismissLoading();
         this.presentAlert('Something went wrong', error.message);
