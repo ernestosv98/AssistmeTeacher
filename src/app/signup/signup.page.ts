@@ -70,6 +70,7 @@ export class SignupPage implements OnInit {
           aboutMe,
           email,
           name,
+          petitions: []
         };
 
         await this.userService.createUser(user);

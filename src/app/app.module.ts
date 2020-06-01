@@ -22,10 +22,13 @@ import { DatePickerModule } from 'ionic4-date-picker';
 import { ShowStudentsPageModule } from './show-students/show-students.module';
 import { UpdateCourseModalPage } from './update-course-modal/update-course-modal.page';
 import { UpdateCourseModalPageModule } from './update-course-modal/update-course-modal.module';
+import { PetitionModalPageModule } from './petition-modal/petition-modal.module';
 
 @NgModule({
   declarations: [AppComponent],
-  entryComponents: [],
+  entryComponents: [
+    
+  ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
@@ -36,9 +39,9 @@ import { UpdateCourseModalPageModule } from './update-course-modal/update-course
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
-    DatePickerModule,
     AddCourseModalPageModule,
     UpdateCourseModalPageModule,
+    PetitionModalPageModule,
     ShowStudentsPageModule,
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
   ],

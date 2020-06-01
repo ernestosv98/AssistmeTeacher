@@ -5,6 +5,7 @@ import { AddCourseModalPage } from '../add-course-modal/add-course-modal.page';
 import { AuthService } from '../services/auth.service';
 import { ShowStudentsPage } from '../show-students/show-students.page';
 import { UpdateCourseModalPage } from '../update-course-modal/update-course-modal.page';
+import { PetitionModalPage } from '../petition-modal/petition-modal.page';
 
 @Component({
   selector: 'app-control-panel',
@@ -47,6 +48,13 @@ export class ControlPanelPage implements OnInit {
       componentProps : {
         'item' : item
       }
+    });
+    await modal.present();
+  }
+
+  async openPetitionModal(){
+    const modal = await this.modalCtrl.create({
+      component : PetitionModalPage,
     });
     await modal.present();
   }

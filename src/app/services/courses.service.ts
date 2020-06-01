@@ -70,7 +70,6 @@ export class CoursesService {
       );
   }
 
-
   getCourse(courseID: string) {
     return this.afs.doc(`courses/${courseID}`).snapshotChanges().pipe(
       map(doc => doc.payload.data())

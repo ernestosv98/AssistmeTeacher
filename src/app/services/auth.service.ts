@@ -27,8 +27,6 @@ export class AuthService {
   }
 
   GetID() {
-    
-    
     return this.afa.auth.currentUser.uid
   }
 

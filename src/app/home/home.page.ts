@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { CoursesService } from '../services/courses.service';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-home',
@@ -31,34 +32,38 @@ export class HomePage implements OnInit {
   }
 
   searchCourses(){
-    if(this.subjects.length > 0){
-      if(this.subjects.includes("All") || this.searchBox.length > 0){
-        this.searched = []
-        this.courses.forEach(element => {
-          if(element.Title.includes(this.searchBox)){
-            this.searched.push(element)
-          }
-        });
-        return;
-      } else {
-        let subTable = []
-        this.searched = []
-        this.courses.forEach(element => {
-        if(element.Subject.includes(this.subjects)){
-          subTable.push(element)
-          if(this.searchBox.length > 0){
-            subTable.forEach(course => {
-              if(course.Title.includes(this.searchBox)){
-                this.searched.push(course)
-              }
-            });
-          } else {
-            this.searched = subTable;
-          }
+    if(this.subjects === "All" && this.searchBox.length > 0){
+      this.searched = [];
+      this.courses.forEach(element => {
+        if(element.Title.includes(this.searchBox)){
+          this.searched.push(element);
+        } else if(element.Subject.includes(this.searchBox)){
+          this.searched.push(element);
+        } else if(element.TeacherName.includes(this.searchBox)){
+          this.searched.push(element);
         }
       });
-      }
-    } else {
+    } else if(this.subjects !== "All" && this.searchBox.length > 0) {
+      this.searched = [];
+      this.courses.forEach(element => {
+        if(element.Title.includes(this.searchBox) && element.Subject.includes(this.subjects) ){
+          this.searched.push(element);
+        } else if(element.Subject.includes(this.searchBox) && element.Subject.includes(this.subjects)){
+          this.searched.push(element);
+        } else if(element.TeacherName.includes(this.searchBox) && element.Subject.includes(this.subjects) ){
+          this.searched.push(element);
+        }
+      });
+    } else if(this.subjects !== "All" && this.searchBox.length <= 0) {
+      this.searched = [];
+      this.courses.forEach(element => {
+        if(element.Subject.includes(this.subjects)){
+          this.searched.push(element);
+        }
+      });
+    }
+    else
+    {
       this.getCourses();
     }
   }
