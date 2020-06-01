@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "final-943d9"
+  },
+  "targets": {
+    "final-943d9": {
+      "hosting": {
+        "Maestros": [
+          "final-943d9"
+        ],
+        "assistmemaestros": [
+          "assistmemaestros"
+        ]
+      }
+    }
+  }
+}

@@ -30,7 +30,7 @@
     "angular-calendar": "^0.28.15",
     "core-js": "^2.5.4",
     "date-fns": "^2.13.0",
-    "firebase": "^7.11.0",
+    "firebase": "^7.14.6",
     "ionic-calendar-date-picker": "^0.1.2",
     "ionic4-date-picker": "^0.1.0",
     "rxjs": "~6.5.1",
