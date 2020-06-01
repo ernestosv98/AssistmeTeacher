@@ -17,22 +17,24 @@ export class PetitionModalPage implements OnInit {
 
   petitions = [];
 
-  users = [];
+  user = [];
+  test : any;
 
   ngOnInit() {
     this.getPetitions()
+
+    console.log(this.test)
   }
 
   getPetitions() {
     this.userService.getUser(this.authService.GetID()).subscribe((user) =>{
-      this.users.push(user);
-    })
-
-    this.users.forEach(element => {
-      element.petitions.forEach(petition => {
-        this.petitions.push(petition);
-      });
+      this.user.push(user);
     });
+  }
+
+  deletePetition(index){
+    this.user[0].petitions.slice(index, 1);
+    this.userService.updateUser(this.user[0].id, this.user[0])
   }
 
   dismiss() {

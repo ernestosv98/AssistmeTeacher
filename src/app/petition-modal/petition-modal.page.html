@@ -5,10 +5,14 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let item of petitions">
-    <ion-card-header> {{item.Title}} </ion-card-header>
-    <ion-card-subtitle> {{item.Message}} </ion-card-subtitle>
-  </ion-card>
+
+    
+
+    <ion-card *ngFor="let p of user[0].petitions, let i = index"> 
+      <ion-card-title> {{p.Title}} </ion-card-title>
+      <ion-card-subtitle> {{p.Message}} </ion-card-subtitle>
+    </ion-card> 
+  
 
   <ion-row>
     <ion-col size="12">

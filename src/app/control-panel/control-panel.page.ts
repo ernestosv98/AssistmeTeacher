@@ -60,7 +60,6 @@ export class ControlPanelPage implements OnInit {
   }
 
   remove(index) {
-    
     this.courseService.deleteCourse(this.myCourses[index].courseID)
   }
 
