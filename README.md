@@ -1,4 +1,4 @@
-# ICC111C6
+# AssistMe - Teacher
 
 ## Table of contents
 * [About](#about)
@@ -13,7 +13,7 @@ Here you will find all the activities necessary for the Software Engineering cou
 With this applications we hope to help students who may find difficult to ask for help to teachers and other students about what was seen in class, sometimes we may find difficult togo to the office in CETYS because of the questions they ask, so with this applications we hope me make it easier to students to sak techers when they have a problem in a class.
 
 # Objective
-Help students to stop fear of asking help to a teacher, with the help of technology and this apps we hope that students start using this service and improve students grades in class.
+Help students to stop the fear of asking for help to a teacher, with the help of technology and this app we hope that students start using this service and improve students grades in school.
 # Getting Started
 In this section, you will be able to clone this repository and set up a local instance of each application. 
 
